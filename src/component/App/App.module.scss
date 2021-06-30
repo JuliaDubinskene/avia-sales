@@ -1,0 +1,27 @@
+.content {
+  display: flex;
+  flex-wrap: no-wrap;
+  padding: 20px;
+  max-width: 794px;
+  margin: 0 auto;
+  gap: 20px;
+
+  &__filter {
+    flex:0 0 30%;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+
+.header {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+
+  &__logo {
+    height: 100px;
+    width: 100px;
+  }
+}
