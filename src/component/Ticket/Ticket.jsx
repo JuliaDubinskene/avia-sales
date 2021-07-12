@@ -1,53 +1,27 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
-import cn from 'classnames';
-import classes from './Ticket.module.scss';
+import TicketFlightInfoList from '../Ticket-flight-info-list/Ticket-flight-info-list';
+import styles from './Ticket.module.scss';
 
-import logo2 from '../../logos/logo2.svg';
-
-const Ticket = () => {
-  
-    return (
-      <div className={classes.ticket}>
-        <div className={classes.ticket__header}>
-          <div className={classes.ticket__price}>13 400 P</div>
-          <img src={logo2} className={classes.ticket__companylogo} alt="loading logo" />
+const Ticket = ({Ticket}) => (
+    <div className={styles.ticket}>
+      <div className={styles.ticket__header}>
+        <div className={styles.ticket__price}>
+          <span>{Ticket.price} Р</span>
         </div>
-        <div className={classes.ticket__info}>
-          <div className={cn(classes.ticket__flight, classes.flight)}>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>MOW-HKT</div>
-              <div className={classes.flight__content}>10:45 - 08:00</div>
-            </div>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>В пути</div>
-              <div className={classes.flight__content}>21ч. 15м.</div>
-            </div>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>2 ПЕРЕСАДКИ</div>
-              <div className={classes.flight__content}>HKG, JNB</div>
-            </div>
-          </div> 
-        </div>
-        <div className={classes.ticket__info}>
-          <div className={cn(classes.ticket__flight, classes.flight)}>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>MOW-HKT</div>
-              <div className={classes.flight__content}>10:45 - 08:00</div>
-            </div>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>В пути</div>
-              <div className={classes.flight__content}>21ч. 15м.</div>
-            </div>
-            <div className={classes.flight__inner}>
-              <div className={classes.flight__header}>2 ПЕРЕСАДКИ</div>
-              <div className={classes.flight__content}>HKG, JNB</div>
-            </div>
-          </div> 
+        <div className={styles.ticket__companylogo}>
+          <img src={`https://pics.avs.io/99/36/${Ticket.carrier}.png`} alt="logo"/>
         </div>
       </div>
+      <div className={styles.ticket__body}>
+        <TicketFlightInfoList Ticket={Ticket} />
+      </div>
+    </div>
   );
-  };
 
+Ticket.propTypes = {
+    Ticket: PropTypes.objectOf(PropTypes.object).isRequired
+  };
 
 export default Ticket;

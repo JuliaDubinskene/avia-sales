@@ -1,0 +1,30 @@
+.buttons_container {
+    display: flex;
+    flex-wrap: nowrap;
+    
+  }
+  
+  .filterbuttons {
+    flex-basis: 100%;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dee0e2;
+    font-family: Sans-serif;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+      
+    &_active{
+      background-color: rgb(27, 109, 233);
+      color: white;
+    }
+    &:first-child{
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+    &:nth-child(2){
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }  
